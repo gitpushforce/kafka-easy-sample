@@ -59,4 +59,6 @@ kafka-topics.sh --bootstrap-server localhost:9092 --create --topic t_test --part
    
    this running order is because kafka will read the latest message by default. If we run producer first and then consumer, the message will be old already and consumer will wait for the new latest one. 
    If we want to make the consumer read all messages from the begin we should add the line below to the application.properties file
+```
    spring.kafka.consumer.auto-offset-reset=earliest
+```
